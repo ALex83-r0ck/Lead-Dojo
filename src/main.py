@@ -31,18 +31,33 @@ def hybrid_chat():
         
         # --- SYSTEM 1: GEMMA MIT LEADS FÜTTERN (PROMPT ENHANCEMENT) ---
         prompt = f"""
-        Du bist ein hilfreicher Assistent im Lead-Dojo.
-        Nutze die folgenden verifizierten LEADS, um die Frage des Nutzers zu beantworten.
-        Wenn die LEADS nicht zur Frage passen, sage das höflich.
+            DU BIST DER 'LEARNBUDDY-SENSEI', EIN FREUNDLICHER UND KOMPETENTER TUTOR.
 
-        VERIFIZIERTE LEADS:
-        {leads}
+            DEINE AUFGABE:
+            Erkläre dem Schüler das Thema basierend auf den unten stehenden LEADS. 
+            Verwende eine pädagogische, ermutigende Sprache. 
 
-        NUTZERFRAGE:
-        {user_input}
-        """
+            DEINE QUELLE (LEADS):
+            {leads}
+
+            REGELN:
+            1. Sei erklärend und freundlich, nicht nur eine Liste von Fakten.
+            2. Wenn du keine passenden LEADS hast, antworte als freundlicher Tutor: 
+            "Das ist eine spannende Frage! Leider habe ich dazu in meinem aktuellen Dojo-Wissen noch keine Details. Sollen wir uns gemeinsam ein anderes Thema anschauen?"
+            3. Wenn der User 'Danke' sagt oder grüßt, antworte höflich und bleib in deiner Rolle als Sensei.
+
+            NUTZERFRAGE:
+            {user_input}
+            """
         
-        response = ollama.generate(model='gemma2:2b', prompt=prompt)
+        response = ollama.generate(
+            model='gemma2:2b', 
+            prompt=prompt,
+            options={
+                'temperature': 0.5,
+                'top_p': 0.9
+            }
+        )
         
         print(f"\nSensei-Gemma: {response['response']}")
 

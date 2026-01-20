@@ -1,0 +1,22 @@
+[
+    {
+        "id": "obst_002",
+        "name": "Banane",
+        "leads": ["Südfrucht", "gelbe Schale", "reich an Kalium", "krumme Form"]
+    },
+    {
+        "id": "py_001",
+        "name": "Python Liste",
+        "leads": ["geordnete Sammlung", "veränderbar (mutable)", "eckige Klammern", "Index startet bei 0"]
+    },
+    {
+        "id": "obst_003",
+        "name": "Birne",
+        "leads": ["Kernobst", "süß und fruchtig", "reich an Ballaststoffen", "Form rundlich bis länglich"]
+    },
+    {
+        "id": "automarken_001",
+        "name": "Audi Q8",
+        "leads": ["Seit 2018 in Serie", "Luxus Cope", "geländegig", "286 PS"]
+    }
+]
