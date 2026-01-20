@@ -1,6 +1,11 @@
 # Lead-Dojo/src/main.py (#type: ignore)
 import chromadb
 import ollama
+import os
+
+OLLAMA_HOST = os.getenv("OLLAMA_HOST", "http://localhost:11434")
+if os.path.exists("/.dockerenv"):
+    OLLAMA_HOST = "http://host.docker.internal:11434"
 
 # 1. Verbindungs setup
 client = chromadb.PersistentClient(path="./db")
