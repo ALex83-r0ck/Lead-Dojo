@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lead-dojo-deployment
+  labels:
+    app: lead-dojo
+spec:
+  replicas: 1 # Wir starten mit einer Instanz
+  selector:
+    matchLabels:
+      app: lead-dojo
+  template:
+    metadata:
+      labels:
+        app: lead-dojo
+    spec:
+      containers:
+      - name: lead-dojo-container
+        image: lead-dojo:v1 # Hier nutzt K8s dein Docker-Image
+        imagePullPolicy: Never # Sagt K8s, es soll das lokale Image nutzen
+        env:
+        - name: OLLAMA_HOST
+          value: "http://host.docker.internal:11434"
+        # Ressourcen-Limits (Gut für die Professionalität)
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
