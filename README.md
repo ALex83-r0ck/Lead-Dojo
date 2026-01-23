@@ -37,8 +37,9 @@
 - [x] Prototyp: Verbindung LLM & Vektor-DB
 - [x] Batch-Ingestion & Upsert-Logik
 - [x] Pädagogisches Prompt-Refining
-- [ ] Next: Containerisierung (Docker & K8s Deployment)
-- [ ] Next: Web-GUI mit Streamlit
+- [x] Containerisierung (Docker & K8s Deployment)
+- [x] Web-GUI mit Streamlit
+- [ ] Next: Drag & Drop
 - [ ] Next: Automatisierte Lead-Extraktion (Web-Scraper)
 
 ## 🔧 Installation & Start
