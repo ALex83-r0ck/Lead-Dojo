@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lead-dojo-deployment
+  name: lead-dojo
   labels:
     app: lead-dojo
 spec:
-  replicas: 1 # Wir starten mit einer Instanz
+  replicas: 1
   selector:
     matchLabels:
       app: lead-dojo
@@ -16,16 +16,16 @@ spec:
     spec:
       containers:
       - name: lead-dojo-container
-        image: lead-dojo:v1 # Hier nutzt K8s dein Docker-Image
-        imagePullPolicy: Never # Sagt K8s, es soll das lokale Image nutzen
+        image: lead-dojo:v2
+        ports:
+        - containerPort: 8501
         env:
         - name: OLLAMA_HOST
           value: "http://host.docker.internal:11434"
-        # Ressourcen-Limits (Gut für die Professionalität)
         resources:
           requests:
             memory: "256Mi"
-            cpu: "250m"
+            cpu: "200m"
           limits:
             memory: "512Mi"
             cpu: "500m"
@@ -39,6 +39,6 @@ spec:
     app: lead-dojo
   ports:
     - protocol: TCP
-      port: 80         # Port nach außen
-      targetPort: 8501 # Port des Containers (für später, wenn die GUI kommt)
-  type: NodePort       # Macht es auf deinem Rechner zugänglich
+      port: 80
+      targetPort: 8501
+  type: LoadBalancer
