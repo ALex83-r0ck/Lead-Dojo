@@ -42,8 +42,6 @@
 - [ ] Next: Drag & Drop
 - [ ] Next: Automatisierte Lead-Extraktion (Web-Scraper)
 
-<img width="1910" height="944" alt="dojo" src="https://github.com/user-attachments/assets/6395ccd9-c3df-4484-84ce-2d69a094634a" />
-
 
 ## 🔧 Installation & Start
 
@@ -51,3 +49,8 @@
 2. Abhängigkeiten installieren: pip install -r requirements.txt
 3. Leads laden: python src/ingestor.py
 4. Dojo starten: python src/main.py
+
+## Screenshots
+
+<img width="1910" height="944" alt="dojo" src="https://github.com/user-attachments/assets/6395ccd9-c3df-4484-84ce-2d69a094634a" />
+
