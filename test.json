@@ -1,0 +1,71 @@
+{
+  "dojo": {
+    "name_jp": "漆塾",
+    "name_de": "Urushi Juku – Schule der Veredelung",
+    "level": "Lead-Dojo",
+    "purpose": {
+      "jp": "心・技・体を鍛える",
+      "de": "Geist, Technik und Körper schulen"
+    }
+  },
+  "training_day": {
+    "theme": {
+      "jp": "基本と精神",
+      "de": "Grundlagen und Geisteshaltung"
+    },
+    "exercises": [
+      {
+        "id": 1,
+        "type": "Reiho",
+        "name_jp": "礼法",
+        "name_de": "Etikette und Respekt",
+        "instruction_jp": "道場に入る前に一礼しなさい。",
+        "instruction_de": "Verbeuge dich vor dem Betreten des Dojos.",
+        "sensei_check": {
+          "jp": "なぜ礼をするのか説明しなさい。",
+          "de": "Erkläre, warum wir uns verbeugen."
+        }
+      },
+      {
+        "id": 2,
+        "type": "Kihon",
+        "name_jp": "基本稽古",
+        "name_de": "Grundlagentraining",
+        "instruction_jp": "正しい姿勢で構えを取る。",
+        "instruction_de": "Nimm die Grundstellung mit korrekter Haltung ein.",
+        "sensei_check": {
+          "jp": "姿勢が崩れる理由は何か？",
+          "de": "Warum bricht die Haltung bei Schülern oft ein?"
+        }
+      },
+      {
+        "id": 3,
+        "type": "Kokyu",
+        "name_jp": "呼吸法",
+        "name_de": "Atemtechnik",
+        "instruction_jp": "動作と呼吸を一致させる。",
+        "instruction_de": "Bewegung und Atmung synchronisieren.",
+        "sensei_check": {
+          "jp": "呼吸が技に与える影響を説明しなさい。",
+          "de": "Erkläre den Einfluss der Atmung auf die Technik."
+        }
+      },
+      {
+        "id": 4,
+        "type": "Shin",
+        "name_jp": "心構え",
+        "name_de": "Mentale Haltung",
+        "instruction_jp": "勝ち負けではなく、学びに集中する。",
+        "instruction_de": "Konzentriere dich auf Lernen, nicht auf Gewinnen.",
+        "sensei_check": {
+          "jp": "強さとは何か？",
+          "de": "Was bedeutet wahre Stärke?"
+        }
+      }
+    ]
+  },
+  "closing": {
+    "jp": "稽古を終えて感謝の礼を行う。",
+    "de": "Beende das Training mit einer Dankesverbeugung."
+  }
+}

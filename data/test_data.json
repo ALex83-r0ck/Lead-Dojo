@@ -1,0 +1,8 @@
+{
+    "RAG_Basics": {
+        "frage": "Erkläre mir den Unterschied zwischen einem normalen LLM und einem RAG-System."
+    },
+    "Local_AI": {
+        "frage": "Warum ist es sinnvoll, gemma2:2b lokal zu betreiben statt eine Cloud-API zu nutzen?"
+    }
+}

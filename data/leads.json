@@ -18,5 +18,27 @@
         "id": "automarken_001",
         "name": "Audi Q8",
         "leads": ["Seit 2018 in Serie", "Luxus Cope", "geländegig", "286 PS"]
+    },
+    {
+    "id": "py_002",
+    "name": "Python Dictionary",
+    "leads": [
+        "Schlüssel-Wert-Paare",
+        "veränderbar (mutable)",
+        "geschweifte Klammern",
+        "Keys müssen eindeutig sein",
+        "kein fester Index"
+        ]
+    },
+    {
+    "id": "automarken_002",
+    "name": "Tesla Model 3",
+    "leads": [
+        "Elektrofahrzeug",
+        "autonomes Fahren möglich",
+        "minimalistischer Innenraum",
+        "großer Touchscreen",
+        "kein Verbrennungsmotor"
+        ]
     }
 ]

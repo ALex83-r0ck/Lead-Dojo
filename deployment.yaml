@@ -14,14 +14,26 @@ spec:
       labels:
         app: lead-dojo
     spec:
+      securityContext: # Pod-Ebene Sicherheit
+        runAsNonRoot: true
+        runAsUser: 1000
       containers:
       - name: lead-dojo-container
-        image: lead-dojo:v2
+        image: lead-dojo:v2.1.0
+        securityContext: # Container-Ebene Sicherheit
+          readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
         ports:
         - containerPort: 8501
-        env:
-        - name: OLLAMA_HOST
-          value: "http://host.docker.internal:11434"
+        livenessProbe: # Behebt SNYK-CC-K8S-41
+          httpGet:
+            path: /
+            port: 8501
+          initialDelaySeconds: 30
+          periodSeconds: 10
         resources:
           requests:
             memory: "256Mi"
