@@ -1,56 +1,72 @@
-# 🥋 Lead-Dojo: Hybrid System-1 & System-2 Thinking for LLMs
+# 🥋 Lead-Dojo: Hybrid System 2 Thinking for Local LLMs
+## Autonomous RAG Architecture & Logic Engine for LernBuddy
 
-**Lead-Dojo** ist ein Proof-of-Concept für eine zuverlässige KI-Acrhitektur. Es kombiniert die kreative Sprachgewalt von LLMs (System-1) mit der logischen Stabilität einer vektorbasierten Lead-Datenbank (Hinweis-Datenbank "System-2"). Anstatt sich auf die oft unzuverlässigen Halluzinationen von Sprachmodellen zu verlassen, nutze ich in mit diesem System einen "Sensei-Ansatz": Jede Antwort wird erst gegen verifizierte Fakten (Leads/Hinweise) aus einer ChromaDB geprüft und ergänzt.
+**Lead-Dojo** ist das logische Herzstück des **LernBuddy-Ökosystems**. Es implementiert einen "System 2"-Ansatz für lokale Sprachmodelle (Ollama), um die Lücke zwischen schnellen, aber oft ungenauen KI-Antworten und tiefgründiger, logisch verifizierter Wissensverarbeitung zu schließen.
 
-## 🚀 (Aktuelle) Kern-Features
+---
 
-- **Hybrid Reasoning:** Verknüpfung von Ollama (Model: Gemma 2B) mit ChromaDB.
-- **Dynamic Ingestion:** Batch-Verarbeitung von Wissen über strukturierte JSON-Leads.
-- **Upsert-Logik:** Intelligente Wissens-Aktualisierung ohne Dubletten (Redundanzen).
-- **Tutor-Mode:** Ein speziell entwickelter System-Prompt für pädagogische wertvolle Antworten statt bloß stupiden "Fakten-Nachplapperei".
-- **Categorization:** Automatische Themen-Trennung für skalierbare Wissensdatenbanken.
+## 🧠 Das Konzept: System 2 Thinking
+Während Standard-LLMs oft im "System 1" (schnell, intuitiv, fehleranfällig) reagieren, erzwingt Lead-Dojo einen **Reasoning-Workflow**:
+1. **Analysieren:** Zerlegung der Benutzeranfrage.
+2. **Reflektieren:** Abgleich mit lokalen Wissensdatenbanken (RAG).
+3. **Verifizieren:** Logik-Check der Antwort, bevor sie an LernBuddy ausgegeben wird.
 
-## 🛠️ Tech-Stack
+---
 
-- **LLM:** Google Gemma2:2b (via Ollama).
-- **Vector-DB:** ChromaDB.
-- **Sprache:** Python 3.13
-- **Infrastructure:** Docker & Kubernetes (in 🚧)
-- **Security:** Snyk Container & Library Scanning
+## 🛠 Tech Stack & Architektur
 
-## 📂 Projektstruktur
+* **Orchestrierung:** Python (AsyncIO für parallele Reasoning-Chains)
+* **KI-Backend:** Ollama (Support für Llama 3, Mistral & Phi-3)
+* **Vektordatenbank:** ChromaDB zur Speicherung und Abfrage von Lerninhalten
+* **Embeddings:** HuggingFace / Nomic-Embed-Text
+* **Integration:** REST API / Socket-Schnittstelle für die **LernBuddy-App**
 
-```text
-/Lead-Dojo
-  ├── data/               # Wissensbasis (JSON Leads)
-  ├── db/                 # Persistente ChromaDB (Vektorspeicher)
-  ├── Docs/               # Architektur-Diagramme & Deep-Dives
-  ├── src/
-  │   ├── ingestor.py     # Daten-Import & Kategorisierung
-  │   ├── main.py         # Hybrid Chat-Loop & Sensei-Logik
-  │   └── query_test.py   # DB-Integrationstests
-  └── requirements.txt    # Abhängigkeiten 
-  ```
+---
 
-## 🏗 Roadmap
+## 🚀 Key Features
 
-- [x] Prototyp: Verbindung LLM & Vektor-DB
-- [x] Batch-Ingestion & Upsert-Logik
-- [x] Pädagogisches Prompt-Refining
-- [x] Containerisierung (Docker & K8s Deployment)
-- [x] Web-GUI mit Streamlit
-- [ ] Next: Drag & Drop
-- [ ] Next: Automatisierte Lead-Extraktion (Web-Scraper)
+### 1. Hybrid RAG (Retrieval-Augmented Generation)
+Lead-Dojo kombiniert statische Dokumente (PDFs/Notizen aus LernBuddy) mit dynamischem Web-Retrieval, um Antworten zu generieren, die faktisch fundiert und aktuell sind.
+
+### 2. Privacy-First (100% Lokal)
+Entwickelt für maximale Datensicherheit. Die gesamte Verarbeitung – vom Embedding bis zur Inferenz – findet auf der lokalen Infrastruktur statt. Keine API-Calls zu Drittanbietern, keine Datenabflüsse.
+
+### 3. Agentic Logic Layer
+Implementierung von spezialisierten Agenten-Rollen:
+- **Der Tutor:** Erklärt komplexe Sachverhalte didaktisch sinnvoll.
+- **Der Auditor:** Prüft Antworten auf logische Konsistenz.
+- **Der Optimizer:** Komprimiert Wissen für die mobile Darstellung in LernBuddy.
+
+---
+
+## 🏗 Installation (Development)
 
 
-## 🔧 Installation & Start
+# Repository klonen
+```bash
+git clone [https://github.com/ALex83-r0ck/Lead-Dojo.git](https://github.com/ALex83-r0ck/Lead-Dojo.git)
+cd Lead-Dojo
+```
 
-1. Repository klonen
-2. Abhängigkeiten installieren: pip install -r requirements.txt
-3. Leads laden: python src/ingestor.py
-4. Dojo starten: python src/main.py
+# Abhängigkeiten installieren
+```bash
+pip install -r requirements.txt
+```
 
-## Screenshots
+# Ollama Modell sicherstellen
+```bash
+ollama pull llama3
+```
 
-<img width="1910" height="944" alt="dojo" src="https://github.com/user-attachments/assets/6395ccd9-c3df-4484-84ce-2d69a094634a" />
+## 📈 Roadmap & Vision
+[ ] Multi-Modal Support: Integration von Bildanalysen für Lernskripte.
 
+[ ] Advanced Tool-Use: Befähigung der Agenten, Python-Skripte zur Berechnung komplexer Aufgaben auszuführen.
+
+[ ] LernBuddy Sync: Vollständige Synchronisation der Lernfortschritte über die Logic-Engine.
+
+## 🛡 Security & Compliance
+Im Rahmen meiner ISC2-Zertifizierung wurde Lead-Dojo nach dem Prinzip des Least Privilege für Datenzugriffe entwickelt. Alle RAG-Abfragen werden validiert, um Prompt-Injection-Risiken zu minimieren.
+
+Kontakt
+Entwickelt von Alexander Rothe LinkedIn | Portfolio
